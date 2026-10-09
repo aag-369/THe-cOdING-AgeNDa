@@ -1,0 +1,10 @@
+# Synthetic config for examples/end_to_end.py -- no external data, no network.
+seed: 42
+n_steps: 20
+base_lr: 0.1
+model:
+  _target: model:linear
+  width: 4
+optim:
+  _target: optim:sgd
+  lr: ${base_lr}

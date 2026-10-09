@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantasecure-neurollm"
+version = "0.1.0"
+description = "Research prototype: quantum-simulated features + hybrid neural encoder + from-scratch LLM behind a post-quantum secure channel."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+quantasecure-demo = "quantasecure_neurollm.demo:main"
+
+[tool.setuptools.packages.find]
+include = ["quantasecure_neurollm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["slow: end-to-end tests that train the models (deselect with -m 'not slow')"]
